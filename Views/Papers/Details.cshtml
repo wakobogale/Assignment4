@@ -1,0 +1,354 @@
+﻿@model WebApplication9.Models.Paper
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Paper</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FilenameOriginal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FilenameOriginal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Filename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Filename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Certification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Certification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NotesToReviewers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotesToReviewers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnalysisOfAlgorithms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnalysisOfAlgorithms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Architecture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Architecture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtificialIntelligence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtificialIntelligence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComputerEngineering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComputerEngineering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Curriculum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Curriculum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataStructures)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataStructures)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Databases)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Databases)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DistanceLearning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistanceLearning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DistributedSystems)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistributedSystems)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EthicalSocietalIssues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EthicalSocietalIssues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstYearComputing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstYearComputing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenderIssues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenderIssues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GrantWriting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GrantWriting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GraphicsImageProcessing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GraphicsImageProcessing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HumanComputerInteraction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HumanComputerInteraction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LaboratoryEnvironments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LaboratoryEnvironments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Literacy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Literacy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MathematicsInComputing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MathematicsInComputing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Multimedia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Multimedia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkingDataCommunications)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkingDataCommunications)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NonMajorCourses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonMajorCourses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObjectOrientedIssues)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObjectOrientedIssues)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OperatingSystems)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OperatingSystems)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParallelsProcessing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParallelsProcessing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pedagogy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pedagogy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgrammingLanguages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgrammingLanguages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Research)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Research)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Security)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Security)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareEngineering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareEngineering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SystemsAnalysisAndDesign)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SystemsAnalysisAndDesign)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsingTechnologyInTheClassroom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsingTechnologyInTheClassroom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebAndInternetProgramming)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebAndInternetProgramming)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PaperID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

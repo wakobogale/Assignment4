@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CPMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleInitial" Type="nvarchar" MaxLength="1" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Affiliation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Paper">
+          <Key>
+            <PropertyRef Name="PaperID" />
+          </Key>
+          <Property Name="PaperID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AuthorID" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="FilenameOriginal" Type="nvarchar" MaxLength="100" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="100" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Certification" Type="nvarchar" MaxLength="3" />
+          <Property Name="NotesToReviewers" Type="nvarchar(max)" />
+          <Property Name="AnalysisOfAlgorithms" Type="bit" />
+          <Property Name="Applications" Type="bit" />
+          <Property Name="Architecture" Type="bit" />
+          <Property Name="ArtificialIntelligence" Type="bit" />
+          <Property Name="ComputerEngineering" Type="bit" />
+          <Property Name="Curriculum" Type="bit" />
+          <Property Name="DataStructures" Type="bit" />
+          <Property Name="Databases" Type="bit" />
+          <Property Name="DistanceLearning" Type="bit" />
+          <Property Name="DistributedSystems" Type="bit" />
+          <Property Name="EthicalSocietalIssues" Type="bit" />
+          <Property Name="FirstYearComputing" Type="bit" />
+          <Property Name="GenderIssues" Type="bit" />
+          <Property Name="GrantWriting" Type="bit" />
+          <Property Name="GraphicsImageProcessing" Type="bit" />
+          <Property Name="HumanComputerInteraction" Type="bit" />
+          <Property Name="LaboratoryEnvironments" Type="bit" />
+          <Property Name="Literacy" Type="bit" />
+          <Property Name="MathematicsInComputing" Type="bit" />
+          <Property Name="Multimedia" Type="bit" />
+          <Property Name="NetworkingDataCommunications" Type="bit" />
+          <Property Name="NonMajorCourses" Type="bit" />
+          <Property Name="ObjectOrientedIssues" Type="bit" />
+          <Property Name="OperatingSystems" Type="bit" />
+          <Property Name="ParallelsProcessing" Type="bit" />
+          <Property Name="Pedagogy" Type="bit" />
+          <Property Name="ProgrammingLanguages" Type="bit" />
+          <Property Name="Research" Type="bit" />
+          <Property Name="Security" Type="bit" />
+          <Property Name="SoftwareEngineering" Type="bit" />
+          <Property Name="SystemsAnalysisAndDesign" Type="bit" />
+          <Property Name="UsingTechnologyInTheClassroom" Type="bit" />
+          <Property Name="WebAndInternetProgramming" Type="bit" Nullable="false" />
+          <Property Name="Other" Type="bit" />
+          <Property Name="OtherDescription" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaperID" Type="int" />
+          <Property Name="ReviewerID" Type="int" />
+          <Property Name="AppropriatenessOfTopic" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="TimelinessOfTopic" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="SupportiveEvidence" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="TechnicalQuality" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="ScopeOfCoverage" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="CitationOfPreviousWork" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="Originality" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="ContentComments" Type="nvarchar(max)" />
+          <Property Name="OrganizationOfPaper" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="ClarityOfMainMessage" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="Mechanics" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="WrittenDocumentComments" Type="nvarchar(max)" />
+          <Property Name="SuitabilityForPresentation" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="PotentialInterestInTopic" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="PotentialForOralPresentationComments" Type="nvarchar(max)" />
+          <Property Name="OverallRating" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="OverallRatingComments" Type="nvarchar(max)" />
+          <Property Name="ComfortLevelTopic" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="ComfortLevelAcceptability" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="Complete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Reviewer">
+          <Key>
+            <PropertyRef Name="ReviewerID" />
+          </Key>
+          <Property Name="ReviewerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleInitial" Type="nvarchar" MaxLength="1" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Affiliation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="State" Type="nvarchar" MaxLength="2" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="5" />
+          <Property Name="AnalysisOfAlgorithms" Type="bit" />
+          <Property Name="Applications" Type="bit" />
+          <Property Name="Architecture" Type="bit" />
+          <Property Name="ArtificialIntelligence" Type="bit" />
+          <Property Name="ComputerEngineering" Type="bit" />
+          <Property Name="Curriculum" Type="bit" />
+          <Property Name="DataStructures" Type="bit" />
+          <Property Name="Databases" Type="bit" />
+          <Property Name="DistancedLearning" Type="bit" />
+          <Property Name="DistributedSystems" Type="bit" />
+          <Property Name="EthicalSocietalIssues" Type="bit" />
+          <Property Name="FirstYearComputing" Type="bit" />
+          <Property Name="GenderIssues" Type="bit" />
+          <Property Name="GrantWriting" Type="bit" />
+          <Property Name="GraphicsImageProcessing" Type="bit" />
+          <Property Name="HumanComputerInteraction" Type="bit" />
+          <Property Name="LaboratoryEnvironments" Type="bit" />
+          <Property Name="Literacy" Type="bit" />
+          <Property Name="MathematicsInComputing" Type="bit" />
+          <Property Name="Multimedia" Type="bit" />
+          <Property Name="NetworkingDataCommunications" Type="bit" />
+          <Property Name="NonMajorCourses" Type="bit" />
+          <Property Name="ObjectOrientedIssues" Type="bit" />
+          <Property Name="OperatingSystems" Type="bit" />
+          <Property Name="ParallelProcessing" Type="bit" />
+          <Property Name="Pedagogy" Type="bit" />
+          <Property Name="ProgrammingLanguages" Type="bit" />
+          <Property Name="Research" Type="bit" />
+          <Property Name="Security" Type="bit" />
+          <Property Name="SoftwareEngineering" Type="bit" />
+          <Property Name="SystemsAnalysisAndDesign" Type="bit" />
+          <Property Name="UsingTechnologyInTheClassroom" Type="bit" />
+          <Property Name="WebAndInternetProgramming" Type="bit" Nullable="false" />
+          <Property Name="Other" Type="bit" />
+          <Property Name="OtherDescription" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReviewsAcknowledged" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Paper_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Reviewer">
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="0..1" />
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reviewer">
+              <PropertyRef Name="ReviewerID" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="ReviewerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Paper">
+          <End Role="Paper" Type="Self.Paper" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paper">
+              <PropertyRef Name="PaperID" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="PaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CPMSModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paper" EntityType="Self.Paper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reviewer" EntityType="Self.Reviewer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Paper_Author" Association="Self.FK_Paper_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Paper" EntitySet="Paper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Reviewer" Association="Self.FK_Review_Reviewer">
+            <End Role="Reviewer" EntitySet="Reviewer" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Paper" Association="Self.FK_Score_Paper">
+            <End Role="Paper" EntitySet="Paper" />
+            <End Role="Review" EntitySet="Review" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CPMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Affiliation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Papers" Relationship="Self.FK_Paper_Author" FromRole="Author" ToRole="Paper" />
+        </EntityType>
+        <EntityType Name="Paper">
+          <Key>
+            <PropertyRef Name="PaperID" />
+          </Key>
+          <Property Name="PaperID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="FilenameOriginal" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Filename" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Certification" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="NotesToReviewers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnalysisOfAlgorithms" Type="Boolean" />
+          <Property Name="Applications" Type="Boolean" />
+          <Property Name="Architecture" Type="Boolean" />
+          <Property Name="ArtificialIntelligence" Type="Boolean" />
+          <Property Name="ComputerEngineering" Type="Boolean" />
+          <Property Name="Curriculum" Type="Boolean" />
+          <Property Name="DataStructures" Type="Boolean" />
+          <Property Name="Databases" Type="Boolean" />
+          <Property Name="DistanceLearning" Type="Boolean" />
+          <Property Name="DistributedSystems" Type="Boolean" />
+          <Property Name="EthicalSocietalIssues" Type="Boolean" />
+          <Property Name="FirstYearComputing" Type="Boolean" />
+          <Property Name="GenderIssues" Type="Boolean" />
+          <Property Name="GrantWriting" Type="Boolean" />
+          <Property Name="GraphicsImageProcessing" Type="Boolean" />
+          <Property Name="HumanComputerInteraction" Type="Boolean" />
+          <Property Name="LaboratoryEnvironments" Type="Boolean" />
+          <Property Name="Literacy" Type="Boolean" />
+          <Property Name="MathematicsInComputing" Type="Boolean" />
+          <Property Name="Multimedia" Type="Boolean" />
+          <Property Name="NetworkingDataCommunications" Type="Boolean" />
+          <Property Name="NonMajorCourses" Type="Boolean" />
+          <Property Name="ObjectOrientedIssues" Type="Boolean" />
+          <Property Name="OperatingSystems" Type="Boolean" />
+          <Property Name="ParallelsProcessing" Type="Boolean" />
+          <Property Name="Pedagogy" Type="Boolean" />
+          <Property Name="ProgrammingLanguages" Type="Boolean" />
+          <Property Name="Research" Type="Boolean" />
+          <Property Name="Security" Type="Boolean" />
+          <Property Name="SoftwareEngineering" Type="Boolean" />
+          <Property Name="SystemsAnalysisAndDesign" Type="Boolean" />
+          <Property Name="UsingTechnologyInTheClassroom" Type="Boolean" />
+          <Property Name="WebAndInternetProgramming" Type="Boolean" Nullable="false" />
+          <Property Name="Other" Type="Boolean" />
+          <Property Name="OtherDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Paper_Author" FromRole="Paper" ToRole="Author" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Score_Paper" FromRole="Paper" ToRole="Review" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaperID" Type="Int32" />
+          <Property Name="ReviewerID" Type="Int32" />
+          <Property Name="AppropriatenessOfTopic" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="TimelinessOfTopic" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="SupportiveEvidence" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="TechnicalQuality" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="ScopeOfCoverage" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="CitationOfPreviousWork" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="Originality" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="ContentComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationOfPaper" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="ClarityOfMainMessage" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="Mechanics" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="WrittenDocumentComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SuitabilityForPresentation" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="PotentialInterestInTopic" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="PotentialForOralPresentationComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OverallRating" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="OverallRatingComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ComfortLevelTopic" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="ComfortLevelAcceptability" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="Complete" Type="Boolean" />
+          <NavigationProperty Name="Paper" Relationship="Self.FK_Score_Paper" FromRole="Review" ToRole="Paper" />
+          <NavigationProperty Name="Reviewer" Relationship="Self.FK_Review_Reviewer" FromRole="Review" ToRole="Reviewer" />
+        </EntityType>
+        <EntityType Name="Reviewer">
+          <Key>
+            <PropertyRef Name="ReviewerID" />
+          </Key>
+          <Property Name="ReviewerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Affiliation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="AnalysisOfAlgorithms" Type="Boolean" />
+          <Property Name="Applications" Type="Boolean" />
+          <Property Name="Architecture" Type="Boolean" />
+          <Property Name="ArtificialIntelligence" Type="Boolean" />
+          <Property Name="ComputerEngineering" Type="Boolean" />
+          <Property Name="Curriculum" Type="Boolean" />
+          <Property Name="DataStructures" Type="Boolean" />
+          <Property Name="Databases" Type="Boolean" />
+          <Property Name="DistancedLearning" Type="Boolean" />
+          <Property Name="DistributedSystems" Type="Boolean" />
+          <Property Name="EthicalSocietalIssues" Type="Boolean" />
+          <Property Name="FirstYearComputing" Type="Boolean" />
+          <Property Name="GenderIssues" Type="Boolean" />
+          <Property Name="GrantWriting" Type="Boolean" />
+          <Property Name="GraphicsImageProcessing" Type="Boolean" />
+          <Property Name="HumanComputerInteraction" Type="Boolean" />
+          <Property Name="LaboratoryEnvironments" Type="Boolean" />
+          <Property Name="Literacy" Type="Boolean" />
+          <Property Name="MathematicsInComputing" Type="Boolean" />
+          <Property Name="Multimedia" Type="Boolean" />
+          <Property Name="NetworkingDataCommunications" Type="Boolean" />
+          <Property Name="NonMajorCourses" Type="Boolean" />
+          <Property Name="ObjectOrientedIssues" Type="Boolean" />
+          <Property Name="OperatingSystems" Type="Boolean" />
+          <Property Name="ParallelProcessing" Type="Boolean" />
+          <Property Name="Pedagogy" Type="Boolean" />
+          <Property Name="ProgrammingLanguages" Type="Boolean" />
+          <Property Name="Research" Type="Boolean" />
+          <Property Name="Security" Type="Boolean" />
+          <Property Name="SoftwareEngineering" Type="Boolean" />
+          <Property Name="SystemsAnalysisAndDesign" Type="Boolean" />
+          <Property Name="UsingTechnologyInTheClassroom" Type="Boolean" />
+          <Property Name="WebAndInternetProgramming" Type="Boolean" Nullable="false" />
+          <Property Name="Other" Type="Boolean" />
+          <Property Name="OtherDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewsAcknowledged" Type="Boolean" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Reviewer" FromRole="Reviewer" ToRole="Review" />
+        </EntityType>
+        <Association Name="FK_Paper_Author">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="Paper" Type="Self.Paper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Paper">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Paper">
+          <End Role="Paper" Type="Self.Paper" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paper">
+              <PropertyRef Name="PaperID" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="PaperID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Review_Reviewer">
+          <End Role="Reviewer" Type="Self.Reviewer" Multiplicity="0..1" />
+          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reviewer">
+              <PropertyRef Name="ReviewerID" />
+            </Principal>
+            <Dependent Role="Review">
+              <PropertyRef Name="ReviewerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CPMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Papers" EntityType="Self.Paper" />
+          <EntitySet Name="Reviews" EntityType="Self.Review" />
+          <EntitySet Name="Reviewers" EntityType="Self.Reviewer" />
+          <AssociationSet Name="FK_Paper_Author" Association="Self.FK_Paper_Author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Paper" EntitySet="Papers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Paper" Association="Self.FK_Score_Paper">
+            <End Role="Paper" EntitySet="Papers" />
+            <End Role="Review" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Review_Reviewer" Association="Self.FK_Review_Reviewer">
+            <End Role="Reviewer" EntitySet="Reviewers" />
+            <End Role="Review" EntitySet="Reviews" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CPMSModelStoreContainer" CdmEntityContainer="CPMSEntities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="CPMSModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Papers">
+            <EntityTypeMapping TypeName="CPMSModel.Paper">
+              <MappingFragment StoreEntitySet="Paper">
+                <ScalarProperty Name="PaperID" ColumnName="PaperID" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="FilenameOriginal" ColumnName="FilenameOriginal" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Certification" ColumnName="Certification" />
+                <ScalarProperty Name="NotesToReviewers" ColumnName="NotesToReviewers" />
+                <ScalarProperty Name="AnalysisOfAlgorithms" ColumnName="AnalysisOfAlgorithms" />
+                <ScalarProperty Name="Applications" ColumnName="Applications" />
+                <ScalarProperty Name="Architecture" ColumnName="Architecture" />
+                <ScalarProperty Name="ArtificialIntelligence" ColumnName="ArtificialIntelligence" />
+                <ScalarProperty Name="ComputerEngineering" ColumnName="ComputerEngineering" />
+                <ScalarProperty Name="Curriculum" ColumnName="Curriculum" />
+                <ScalarProperty Name="DataStructures" ColumnName="DataStructures" />
+                <ScalarProperty Name="Databases" ColumnName="Databases" />
+                <ScalarProperty Name="DistanceLearning" ColumnName="DistanceLearning" />
+                <ScalarProperty Name="DistributedSystems" ColumnName="DistributedSystems" />
+                <ScalarProperty Name="EthicalSocietalIssues" ColumnName="EthicalSocietalIssues" />
+                <ScalarProperty Name="FirstYearComputing" ColumnName="FirstYearComputing" />
+                <ScalarProperty Name="GenderIssues" ColumnName="GenderIssues" />
+                <ScalarProperty Name="GrantWriting" ColumnName="GrantWriting" />
+                <ScalarProperty Name="GraphicsImageProcessing" ColumnName="GraphicsImageProcessing" />
+                <ScalarProperty Name="HumanComputerInteraction" ColumnName="HumanComputerInteraction" />
+                <ScalarProperty Name="LaboratoryEnvironments" ColumnName="LaboratoryEnvironments" />
+                <ScalarProperty Name="Literacy" ColumnName="Literacy" />
+                <ScalarProperty Name="MathematicsInComputing" ColumnName="MathematicsInComputing" />
+                <ScalarProperty Name="Multimedia" ColumnName="Multimedia" />
+                <ScalarProperty Name="NetworkingDataCommunications" ColumnName="NetworkingDataCommunications" />
+                <ScalarProperty Name="NonMajorCourses" ColumnName="NonMajorCourses" />
+                <ScalarProperty Name="ObjectOrientedIssues" ColumnName="ObjectOrientedIssues" />
+                <ScalarProperty Name="OperatingSystems" ColumnName="OperatingSystems" />
+                <ScalarProperty Name="ParallelsProcessing" ColumnName="ParallelsProcessing" />
+                <ScalarProperty Name="Pedagogy" ColumnName="Pedagogy" />
+                <ScalarProperty Name="ProgrammingLanguages" ColumnName="ProgrammingLanguages" />
+                <ScalarProperty Name="Research" ColumnName="Research" />
+                <ScalarProperty Name="Security" ColumnName="Security" />
+                <ScalarProperty Name="SoftwareEngineering" ColumnName="SoftwareEngineering" />
+                <ScalarProperty Name="SystemsAnalysisAndDesign" ColumnName="SystemsAnalysisAndDesign" />
+                <ScalarProperty Name="UsingTechnologyInTheClassroom" ColumnName="UsingTechnologyInTheClassroom" />
+                <ScalarProperty Name="WebAndInternetProgramming" ColumnName="WebAndInternetProgramming" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="OtherDescription" ColumnName="OtherDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="CPMSModel.Review">
+              <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="PaperID" ColumnName="PaperID" />
+                <ScalarProperty Name="ReviewerID" ColumnName="ReviewerID" />
+                <ScalarProperty Name="AppropriatenessOfTopic" ColumnName="AppropriatenessOfTopic" />
+                <ScalarProperty Name="TimelinessOfTopic" ColumnName="TimelinessOfTopic" />
+                <ScalarProperty Name="SupportiveEvidence" ColumnName="SupportiveEvidence" />
+                <ScalarProperty Name="TechnicalQuality" ColumnName="TechnicalQuality" />
+                <ScalarProperty Name="ScopeOfCoverage" ColumnName="ScopeOfCoverage" />
+                <ScalarProperty Name="CitationOfPreviousWork" ColumnName="CitationOfPreviousWork" />
+                <ScalarProperty Name="Originality" ColumnName="Originality" />
+                <ScalarProperty Name="ContentComments" ColumnName="ContentComments" />
+                <ScalarProperty Name="OrganizationOfPaper" ColumnName="OrganizationOfPaper" />
+                <ScalarProperty Name="ClarityOfMainMessage" ColumnName="ClarityOfMainMessage" />
+                <ScalarProperty Name="Mechanics" ColumnName="Mechanics" />
+                <ScalarProperty Name="WrittenDocumentComments" ColumnName="WrittenDocumentComments" />
+                <ScalarProperty Name="SuitabilityForPresentation" ColumnName="SuitabilityForPresentation" />
+                <ScalarProperty Name="PotentialInterestInTopic" ColumnName="PotentialInterestInTopic" />
+                <ScalarProperty Name="PotentialForOralPresentationComments" ColumnName="PotentialForOralPresentationComments" />
+                <ScalarProperty Name="OverallRating" ColumnName="OverallRating" />
+                <ScalarProperty Name="OverallRatingComments" ColumnName="OverallRatingComments" />
+                <ScalarProperty Name="ComfortLevelTopic" ColumnName="ComfortLevelTopic" />
+                <ScalarProperty Name="ComfortLevelAcceptability" ColumnName="ComfortLevelAcceptability" />
+                <ScalarProperty Name="Complete" ColumnName="Complete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviewers">
+            <EntityTypeMapping TypeName="CPMSModel.Reviewer">
+              <MappingFragment StoreEntitySet="Reviewer">
+                <ScalarProperty Name="ReviewerID" ColumnName="ReviewerID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AnalysisOfAlgorithms" ColumnName="AnalysisOfAlgorithms" />
+                <ScalarProperty Name="Applications" ColumnName="Applications" />
+                <ScalarProperty Name="Architecture" ColumnName="Architecture" />
+                <ScalarProperty Name="ArtificialIntelligence" ColumnName="ArtificialIntelligence" />
+                <ScalarProperty Name="ComputerEngineering" ColumnName="ComputerEngineering" />
+                <ScalarProperty Name="Curriculum" ColumnName="Curriculum" />
+                <ScalarProperty Name="DataStructures" ColumnName="DataStructures" />
+                <ScalarProperty Name="Databases" ColumnName="Databases" />
+                <ScalarProperty Name="DistancedLearning" ColumnName="DistancedLearning" />
+                <ScalarProperty Name="DistributedSystems" ColumnName="DistributedSystems" />
+                <ScalarProperty Name="EthicalSocietalIssues" ColumnName="EthicalSocietalIssues" />
+                <ScalarProperty Name="FirstYearComputing" ColumnName="FirstYearComputing" />
+                <ScalarProperty Name="GenderIssues" ColumnName="GenderIssues" />
+                <ScalarProperty Name="GrantWriting" ColumnName="GrantWriting" />
+                <ScalarProperty Name="GraphicsImageProcessing" ColumnName="GraphicsImageProcessing" />
+                <ScalarProperty Name="HumanComputerInteraction" ColumnName="HumanComputerInteraction" />
+                <ScalarProperty Name="LaboratoryEnvironments" ColumnName="LaboratoryEnvironments" />
+                <ScalarProperty Name="Literacy" ColumnName="Literacy" />
+                <ScalarProperty Name="MathematicsInComputing" ColumnName="MathematicsInComputing" />
+                <ScalarProperty Name="Multimedia" ColumnName="Multimedia" />
+                <ScalarProperty Name="NetworkingDataCommunications" ColumnName="NetworkingDataCommunications" />
+                <ScalarProperty Name="NonMajorCourses" ColumnName="NonMajorCourses" />
+                <ScalarProperty Name="ObjectOrientedIssues" ColumnName="ObjectOrientedIssues" />
+                <ScalarProperty Name="OperatingSystems" ColumnName="OperatingSystems" />
+                <ScalarProperty Name="ParallelProcessing" ColumnName="ParallelProcessing" />
+                <ScalarProperty Name="Pedagogy" ColumnName="Pedagogy" />
+                <ScalarProperty Name="ProgrammingLanguages" ColumnName="ProgrammingLanguages" />
+                <ScalarProperty Name="Research" ColumnName="Research" />
+                <ScalarProperty Name="Security" ColumnName="Security" />
+                <ScalarProperty Name="SoftwareEngineering" ColumnName="SoftwareEngineering" />
+                <ScalarProperty Name="SystemsAnalysisAndDesign" ColumnName="SystemsAnalysisAndDesign" />
+                <ScalarProperty Name="UsingTechnologyInTheClassroom" ColumnName="UsingTechnologyInTheClassroom" />
+                <ScalarProperty Name="WebAndInternetProgramming" ColumnName="WebAndInternetProgramming" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="OtherDescription" ColumnName="OtherDescription" />
+                <ScalarProperty Name="ReviewsAcknowledged" ColumnName="ReviewsAcknowledged" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
